@@ -1,0 +1,94 @@
+<html>
+<head>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./bootstrap.min.css">
+	<script src="./bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="interface.css" />
+
+
+	<link rel="icon" href="piece.png" type="image/x-icon" />
+	<title id="titletext"> - 0 golds </title>
+
+</head>
+<body onload="load()">
+
+<div class="row">
+
+	<div class="col-lg-12">
+
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" >Idle Game</a>
+				</div>
+				<div class="right">
+					<ul class="nav navbar-nav">
+						<li>  <a href="#upgradesTab" class="active-page">Upgrades </a></li>
+						<li><a href="#unlockTab">Unlocks <span id="unlockable" class="badge">!</span></a></li>
+						<li><a href="#settingsTab">Settings</a></li>
+					</ul>
+					<button onclick="Save()" class="btn btn-danger navbar-btn">Save</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="col-lg-2">
+
+		<div class="row">
+			<div class="col-lg-2">
+			</div>
+			<div  id="interfaceLeft" class="col-lg-10">
+				<span class="badge" id="golds">0 <i>  </i></span> <img src="piece.png" alt="golds" height="30" width="30">
+				<br /> <br/>
+				<button class="btn btn-primary btn-lg extra-lg" onclick="monsterClick(1)">Pundle Village</button>
+				<br />
+
+
+				<br />
+				<br />
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-7">
+	</div>
+
+	<div class="col-lg-3">
+		<div class="col-lg-3">
+		</div>
+		<div class="col-lg-9">
+			<div id="contents">
+				<menu id=unlockTab>
+					<br />
+				</menu>
+
+				<menu id="upgradesTab">
+					<br />
+				</menu>
+
+				<menu id="settingsTab">
+
+					<button onclick="Delete()" class="btn btn-danger navbar-btn btn-lg extra-lg">Delete</button>
+				</menu>
+			</div>
+		</div>
+		<div class="col-lg-1">
+		</div>
+
+	</div>
+	<div class="col-lg-1">
+	</div>
+</div>
+
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
