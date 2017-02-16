@@ -215,7 +215,7 @@ function load()
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 for(var i=0 ; i < element.tileMax ; i++)
                 {
-                    var elemTile = '<div class="tile" onclick="move('+element.nameSingle+"TileBar"+i+' , '+element.nameSingle+'Tiletext'+i+' , '+element.timer+' )" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely">'+element.timer+' </div> </div></div>';
+                    var elemTile = '<div class="tile" onclick="move2('+element.nameSingle+"TileBar"+i+' , '+element.nameSingle+'Tiletext'+i+' , '+element.timer+' )" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely">'+element.timer+' </div> </div></div>';
                     $('#'+element.nameSingle+'Div3').append(elemTile);
                 }
             }
@@ -412,17 +412,18 @@ function move(elem , text , timer ) {
 
 
 }
+
 function move2(elem , text , timerMonster )
 {
     var timer = 0,
         perc = 0,
-        timeTotal = timerMonster*1000,
-        timeCount = 50;
-
+        timeTotal = timerMonster,
+        timeCount = 1000;
+animateUpdate();
 
 function updateProgress(percentage) {
     var x = (percentage/timeTotal)*100,
-        y = x.toFixed(3);
+        y = x.toFixed(0);
     $(elem).css("width", x + "%");
     $(text).text(y + "%");
 }
