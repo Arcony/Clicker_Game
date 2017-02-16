@@ -35,6 +35,10 @@ background-color:#999999;
     background-color:#D9534F;
 }
 
+.extra-lg
+{
+    width : 100%;
+}
 
 .tile
 {
@@ -42,38 +46,4 @@ background-color:#999999;
     height: 45px;
     float: left;
     border: 2px solid black;
-    margin-right: 20px;
-    margin-top: 15px;
-    background-color: #ddd;
-    overflow:hidden;
 }
-
-#container
-{
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.row
-{
-
-    padding-top: 20px;
-}
-
-
-
-.labely
-{
-    text-align: center;
-    line-height: 40px;
-    color: black;
-}
-
-
-
-.myBar {
-    width: 0%;
-    height: 100%;
-    background-color: #4CAF50;
-}
-
