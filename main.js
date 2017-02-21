@@ -214,10 +214,10 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
-                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
-                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
-                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
+                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
+                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12 " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
+                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
                 var test = '<br /><img src="piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'Cost">'+element.nextCost+'</span>';
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 $('#container').append(divrow);
@@ -236,11 +236,11 @@ function load()
                 {
                     if(element.tile < i)
                     {
-                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
+                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'TileDiv'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
                         $('#'+element.nameSingle+'Div3').append(elemTile1);
                     }
                     else {
-                        var elemTile2 = '<div class="tile" onclick="buyMonster(' + element.name + ')" id="' + element.nameSingle + 'Tile' + i + '"><div id=' + element.nameSingle + 'TileBar' + i + '  class="myBar"><div id =' + element.nameSingle + 'Tiletext' + i + ' class="labely padding_label">' + element.timer + ' </div> </div></div>';
+                        var elemTile2 = '<div class="tile" onclick="buyMonster(' + element.name + ')" id="' + element.nameSingle + 'TileDiv' + i + '"><div id=' + element.nameSingle + 'TileBar' + i + '  class="myBar"><div id =' + element.nameSingle + 'Tiletext' + i + ' class="labely padding_label">' + element.timer + ' </div> </div></div>';
                         $('#' + element.nameSingle + 'Div3').append(elemTile2);
                     }
                 }
@@ -254,10 +254,10 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
-                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
-                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
-                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
+                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12 " id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
+                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12 " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
+                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12 " id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
                 var test = '<br /><img src="piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'Cost">'+element.nextCost+'</span>';
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 $('#container').append(divrow);
@@ -276,7 +276,7 @@ function load()
                 {
 
 
-                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
+                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'TileDiv'+i+'" style="background-image: (url"Cave_Spider50_50.png");"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
                         $('#'+element.nameSingle+'Div3').append(elemTile1);
 
 
@@ -299,10 +299,10 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
-                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
-                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
-                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
+                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
+                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
+                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
                 var test = '<br /><img src="piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'Cost">'+element.nextCost+'</span>';
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 $('#container').append(divrow);
@@ -321,11 +321,11 @@ function load()
                 {
                     if(element.tile < i)
                     {
-                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
+                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'TileDiv'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
                         $('#'+element.nameSingle+'Div3').append(elemTile1);
                     }
                     else {
-                        var elemTile2 = '<div class="tile" onclick="buyMonster(' + element.name + ')" id="' + element.nameSingle + 'Tile' + i + '"><div id=' + element.nameSingle + 'TileBar' + i + '  class="myBar"><div id =' + element.nameSingle + 'Tiletext' + i + ' class="labely padding_label">' + element.timer + ' </div> </div></div>';
+                        var elemTile2 = '<div class="tile" onclick="buyMonster(' + element.name + ')" id="' + element.nameSingle + 'TileDiv' + i + '"><div id=' + element.nameSingle + 'TileBar' + i + '  class="myBar"><div id =' + element.nameSingle + 'Tiletext' + i + ' class="labely padding_label">' + element.timer + ' </div> </div></div>';
                         $('#' + element.nameSingle + 'Div3').append(elemTile2);
                     }
                 }
@@ -341,9 +341,9 @@ function load()
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
                 var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg" onclick="buyMonster('+element.name+')">Buy '+element.nameSinglePrettify+' </button>';
-                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom " id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
-                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
-                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
+                var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/>'+element.unlockCost+' golds  </button>';
+                var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/>'+element.nextEffCost+' golds</button> ';
+                var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/>'+element.nextTileCost+' golds</button> ';
                 var test = '<br /><img src="piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'Cost">'+element.nextCost+'</span>';
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 $('#container').append(divrow);
@@ -361,7 +361,7 @@ function load()
                 for(var i=1 ; i < element.tileMax+1 ; i++)
                 {
 
-                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'Tile'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
+                        var elemTile1 = '<div class="tile invisible" onclick="buyMonster('+element.name+')" id="'+element.nameSingle+'TileDiv'+i+'"><div id='+element.nameSingle+'TileBar'+i+'  class="myBar"><div id ='+element.nameSingle+'Tiletext'+i+' class="labely padding_label">'+element.timer+' </div> </div></div>';
                         $('#'+element.nameSingle+'Div3').append(elemTile1);
 
 
@@ -560,7 +560,7 @@ function buyTile(monster)
             document.getElementById("golds").innerHTML = prettify(golds)
             var temp = monster.tile+1;
 
-            $('#'+monster.nameSingle+'Tile'+temp+'').removeClass("invisible");
+            $('#'+monster.nameSingle+'TileDiv'+temp+'').removeClass("invisible");
             monster.tile++;
 
             console.log("You Unlocked Tile N°"+temp+" Of"+monster.name);
