@@ -48,7 +48,7 @@ svg
     width: 70px;
     height: 70px;
     float: left;
-    border: 2px solid black;
+    border: 3px solid rgba(95, 10, 0, 0.85);
     margin-right: 10px;
     margin-left: 25px;
     margin-top: 0px;

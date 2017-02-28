@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e1008ba-0625-4dc8-9c67-0e8591228276" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Image/gobelins.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Image/gobelins50-50.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Image/snow.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Image/zombie.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Image/zombie.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Image/goblin.png" afterPath="$PROJECT_DIR$/Image/goblin.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Image/images.jpg" afterPath="$PROJECT_DIR$/Image/images.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Image/zombie50_50.png" afterPath="$PROJECT_DIR$/Image/zombie50_50.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface.css" afterPath="$PROJECT_DIR$/interface.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,17 +33,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="interface.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="interface.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interface.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="64" column="1" lean-forward="true" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+            <state relative-caret-position="173">
+              <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -168,12 +158,12 @@
       <workItem from="1487233010742" duration="2934000" />
       <workItem from="1487276812666" duration="3314000" />
       <workItem from="1487681780678" duration="25327000" />
-      <workItem from="1488188262100" duration="26674000" />
+      <workItem from="1488188262100" duration="27226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58249000" />
+    <option name="totallyTimeSpent" value="58801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -302,10 +292,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface.css">
+    <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="64" column="1" lean-forward="true" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+        <state relative-caret-position="425">
+          <caret line="223" column="48" lean-forward="true" selection-start-line="223" selection-start-column="48" selection-end-line="223" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -320,10 +310,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/interface.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="223" column="48" lean-forward="true" selection-start-line="223" selection-start-column="48" selection-end-line="223" selection-end-column="48" />
+        <state relative-caret-position="173">
+          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
           <folding />
         </state>
       </provider>
