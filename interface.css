@@ -45,12 +45,13 @@ svg
 
 .tile
 {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     float: left;
     border: 2px solid black;
-    margin-right: 20px;
-    margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 25px;
+    margin-top: 0px;
     background-color: #ddd;
     overflow:hidden;
     border-radius: 50%;
@@ -63,6 +64,7 @@ svg
     padding-right: 40px;
 }
 
+
 .row
 {
 
@@ -70,6 +72,10 @@ svg
 }
 
 #btnSave
+{
+    margin-right: 20px;
+}
+#btnModif
 {
     margin-right: 20px;
 }
@@ -90,14 +96,14 @@ svg
 [id^="spiderTileDiv"]
 {
 
-    background-image: url('Image/Cave_Spider50_50.png');
+    background-image: url('Image/spider_giant1.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 [id^="skeletonTileDiv"]
 {
 
-    background-image: url('Image/skeleton50_50.png');
+    background-image: url('Image/skeleton1.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -105,7 +111,7 @@ svg
 [id^="licheTileDiv"]
 {
 
-    background-image: url('Image/liche50_50.png');
+    background-image: url('Image/liche3.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -113,7 +119,7 @@ svg
 [id^="goblinTileDiv"]
 {
 
-    background-image: url('Image/goblin50_50.png');
+    background-image: url('Image/goblin_2.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -122,8 +128,20 @@ svg
 [id^="zombieTileDiv"]
 {
 
-    background-image: url('Image/zombie50_50.png');
+    background-image: url('Image/zombie_3.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
+#rownav
+{
+    padding-top : 0px;
+}
+
+body {
+    margin:0;
+    padding:0;
+    background: url(Image/background.jpg) no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}

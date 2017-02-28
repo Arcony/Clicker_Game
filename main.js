@@ -1,4 +1,4 @@
-var golds = 435;
+var golds = 999999999;
 var spiders =
     {
         nameSingle : "spider",
@@ -18,7 +18,8 @@ var spiders =
         tileMax:5,
         timer:2,
         tileActive : [ false , false , false , false , false , false],
-    }
+        shortcut : "S"
+    };
 
 var skeletons = {
     nameSinglePrettify : "Skeleton",
@@ -38,7 +39,8 @@ var skeletons = {
     tileMax:3,
     timer:5,
     tileActive : [ false , false , false , false],
-}
+    shortcut : "K"
+};
 
 var goblins = {
     nameSinglePrettify : "Goblin",
@@ -58,7 +60,8 @@ var goblins = {
     tileMax:5,
     timer:8,
     tileActive : [ false , false , false , false , false , false],
-}
+    shortcut : "G"
+};
 
 var zombies = {
     nameSinglePrettify : "Zombie",
@@ -78,7 +81,8 @@ var zombies = {
     tileMax:5,
     timer:12,
     tileActive : [ false , false , false , false , false , false],
-}
+    shortcut : "Z"
+};
 
 var liches = {
     nameSinglePrettify : "Liche",
@@ -98,7 +102,8 @@ var liches = {
     tileMax:5,
     timer:25,
     tileActive : [ false , false , false , false , false , false],
-}
+    shortcut : "L"
+};
 
 var monsterTab = [ spiders , skeletons , goblins , zombies , liches ];
 
@@ -121,6 +126,7 @@ function Save()
             unlock : spiders.unlock,
             tile : spiders.tile,
             nextTileCost : spiders.nextTileCost,
+            shortcut: spiders.shortcut,
         },
         skeletons : {
             number : skeletons.number,
@@ -132,6 +138,7 @@ function Save()
             unlock : skeletons.unlock,
             tile : skeletons.tile,
             nextTileCost : skeletons.nextTileCost,
+                shortcut: skeletons.shortcut,
         },
         goblins : {
             number : goblins.number,
@@ -143,6 +150,7 @@ function Save()
             unlock : goblins.unlock,
             tile : goblins.tile,
             nextTileCost : goblins.nextTileCost,
+            shortcut: goblins.shortcut,
         },
         zombies : {
             number : zombies.number,
@@ -154,6 +162,7 @@ function Save()
             unlock : zombies.unlock,
             tile : zombies.tile,
             nextTileCost : zombies.nextTileCost,
+            shortcut: zombies.shortcut,
         },
         liches : {
             number : liches.number,
@@ -165,6 +174,7 @@ function Save()
             unlock : liches.unlock,
             tile : liches.tile,
             nextTileCost : liches.nextTileCost,
+            shortcut: liches.shortcut,
         },
 
 
@@ -195,6 +205,7 @@ function load()
                 if (typeof saved[element.name].unlock !== "undefined") element.unlock = saved[element.name].unlock;
                 if (typeof saved[element.name].tile !== "undefined") element.tile = saved[element.name].tile;
                 if (typeof saved[element.name].nextTileCost !== "undefined") element.nextTileCost = saved[element.name].nextTileCost;
+                if (typeof saved[element.name].shortcut !== "undefined") element.shortcut = saved[element.name].shortcut;
             }
             else
             {
@@ -215,11 +226,33 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+' </button>';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')"> Hire '+element.nameSinglePrettify+'       <span id="Shortcut'+element.name+'">( '+element.shortcut+' )</span> </button>';
                 var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'unlockCost"> '+element.unlockCost+'</span></button>';
                 var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12 " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'EffCost"> '+element.nextEffCost+'</span></button>';
                 var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"><span id="'+element.name+'TileCost"> '+element.nextTileCost+'</span></button>';
                 var test = '<br /><img src="Image/piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'Cost">'+element.nextCost+'</span>';
+
+                /*#####################################*/
+               /*##########SHORTCUT##################*/
+               /*#####################################*/
+               if(element.unlock)
+                var shortcutrow =  '<div class="row" id= "'+element.name+'DivShortcut"></div>';
+                var div1shortcut = '<div class="col-lg-6" id= "'+element.name+'DivShortcut1"> Hire '+element.namePrettify+' : </div>';
+                var div2shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut2"></div>';
+                var div3shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut3"></div>';
+                var btnShortcut = '<input type="text" class="form-control" value="'+element.shortcut+'" maxlength="1" id="shortcut'+element.name+'">';
+
+                $('#modalbody').append(shortcutrow);
+                $('#'+element.name+'DivShortcut').append(div1shortcut , div2shortcut , div3shortcut );
+                $('#'+element.name+'DivShortcut3').append(btnShortcut);
+
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
+
+
+
                 $('#btnBuy'+element.namePrettify+'').append(test);
                 $('#container').append(divrow);
                 $('#'+element.nameSingle+'Div').append(div1);
@@ -256,7 +289,7 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+' </button>';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+'        <span id="Shortcut'+element.name+'">( '+element.shortcut+' )</span></button>';
                 var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12 " id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'unlockCost"> '+element.unlockCost+'</span></button>';
                 var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12 " id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'EffCost"> '+element.nextEffCost+'</span></button>';
                 var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12 " id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"><span id="'+element.name+'TileCost"> '+element.nextTileCost+'</span></button>';
@@ -283,6 +316,24 @@ function load()
 
 
                 }
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
+                var shortcutrow =  '<div class="row invisible" id= "'+element.name+'DivShortcut"></div>';
+                var div1shortcut = '<div class="col-lg-6" id= "'+element.name+'DivShortcut1"> Hire '+element.namePrettify+' : </div>';
+                var div2shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut2"></div>';
+                var div3shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut3"></div>';
+                var btnShortcut = '<input type="text" class="form-control" value="'+element.shortcut+'" id="shortcut'+element.name+'">';
+
+                $('#modalbody').append(shortcutrow);
+                $('#'+element.name+'DivShortcut').append(div1shortcut , div2shortcut , div3shortcut );
+                $('#'+element.name+'DivShortcut3').append(btnShortcut);
+
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
             }
 
         });
@@ -302,7 +353,7 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+' </button>';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+'        <span id="Shortcut'+element.name+'">( '+element.shortcut+' )</span></button>';
                 var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'unlockCost"> '+element.unlockCost+'</span></button>';
                 var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'EffCost"> '+element.nextEffCost+'</span></button>';
                 var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'TileCost"> '+element.nextTileCost+'</span></button>';
@@ -332,6 +383,24 @@ function load()
                         $('#' + element.nameSingle + 'Div3').append(elemTile2);
                     }
                 }
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
+                var shortcutrow =  '<div class="row" id= "'+element.name+'DivShortcut"></div>';
+                var div1shortcut = '<div class="col-lg-6" id= "'+element.name+'DivShortcut1"> Hire '+element.namePrettify+' : </div>';
+                var div2shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut2"></div>';
+                var div3shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut3"></div>';
+                var btnShortcut = '<input type="text" class="form-control" value="'+element.shortcut+'" id="shortcut'+element.name+'">';
+
+                $('#modalbody').append(shortcutrow);
+                $('#'+element.name+'DivShortcut').append(div1shortcut , div2shortcut , div3shortcut );
+                $('#'+element.name+'DivShortcut3').append(btnShortcut);
+
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
 
             }
             else
@@ -343,7 +412,7 @@ function load()
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
 
-                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg  col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+' </button>';
+                var btn1 = '<button id="btnBuy'+element.namePrettify+'" class="btn btn-primary btn-lg extra-lg  col-lg-12" onclick="buyMonster('+element.name+')">Hire '+element.nameSinglePrettify+'        <span id="Shortcut'+element.name+'">( '+element.shortcut+' )</span></button>';
                 var btn2 = '<button class="btn btn-info btn-lg extra-lg espacebottom col-lg-12" id='+element.name+'Unlock onclick=unlock('+element.name+')> Unlock '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"> <span id="'+element.name+'unlockCost"> '+element.unlockCost+'</span></button>';
                 var btn3 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id='+element.name+'EffUp onclick=upEff('+element.name+')> Upgrade '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20">  <span id="'+element.name+'EffCost"> '+element.nextEffCost+'</span></button>';
                 var btn4 = '<button class="btn btn-info btn-lg extra-lg espacebottom invisible col-lg-12" id="buyTile'+element.name+'" onclick=buyTile('+element.name+')> Buy Tile for '+element.namePrettify+' <br/><img src="Image/piece.png" alt="golds" height="20" width="20"><span id="'+element.name+'TileCost"> '+element.nextTileCost+'</span></button>';
@@ -370,12 +439,44 @@ function load()
 
 
                 }
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
+
+                var shortcutrow =  '<div class="row invisible" id= "'+element.name+'DivShortcut"></div>';
+                var div1shortcut = '<div class="col-lg-6" id= "'+element.name+'DivShortcut1"> Hire '+element.namePrettify+' : </div>';
+                var div2shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut2"></div>';
+                var div3shortcut = '<div class="col-lg-3" id= "'+element.name+'DivShortcut3"></div>';
+                var btnShortcut = '<input type="text" class="form-control" value="'+element.shortcut+'" id="shortcut'+element.name+'">';
+
+                $('#modalbody').append(shortcutrow);
+                $('#'+element.name+'DivShortcut').append(div1shortcut , div2shortcut , div3shortcut );
+                $('#'+element.name+'DivShortcut3').append(btnShortcut);
+
+                /*#####################################*/
+                /*##########SHORTCUT##################*/
+                /*#####################################*/
             }
 
         });
     }
 
+    shortcut.add( spiders.shortcut ,function() {
+        buyMonster(spiders);
+    });
 
+    shortcut.add(skeletons.shortcut,function() {
+        buyMonster(skeletons);
+    });
+    shortcut.add(goblins.shortcut,function() {
+        buyMonster(goblins);
+    });
+    shortcut.add(zombies.shortcut,function() {
+        buyMonster(zombies);
+    });
+    shortcut.add(liches.shortcut ,function() {
+        buyMonster(liches);
+    });
 }
 
 /*##################################################################################*/
@@ -465,6 +566,7 @@ function unlock(monster){
         $('#btnBuy'+monster.namePrettify+'').removeClass("invisible");
         $('#buyTile'+monster.name+'').removeClass("invisible");
         $('#'+monster.nameSingle+'TileDiv1').removeClass("invisible");
+        $('#'+monster.name+'DivShortcut').removeClass("invisible");
         document.getElementById('golds').innerHTML = prettify(golds);
 
     }
@@ -477,9 +579,12 @@ function monsterClick(number){
 
 
 
-function goldWin(monster , tempCost)
+function goldWin(monster , tempCost , temp)
 {
-    golds = golds + (tempCost + monster.profit * monster.efficiency );
+    if(monster.tileMax == temp)
+        golds = golds + (tempCost + (monster.profit*2) * monster.efficiency );
+    else
+        golds = golds + (tempCost + monster.profit * monster.efficiency );
     document.getElementById("golds").innerHTML = prettify(golds);
 
     downPrice(monster);
@@ -551,7 +656,7 @@ function animation(elem , timerMonster , monster , temp , tempCost)
     var tile =  document.getElementById(elem);
     var bar = new ProgressBar.Circle(tile, {
         strokeWidth: 50,
-        easing: 'easeInOut',
+        easing: 'linear',
         duration: timerMonster*1000,
         color: '#4CAF50',
         trailColor: '#eee',
@@ -561,13 +666,151 @@ function animation(elem , timerMonster , monster , temp , tempCost)
 
     bar.animate(1.0 , null , function (){
         bar.destroy();
-        goldWin(monster , tempCost);
+        goldWin(monster , tempCost , temp);
         monster.tileActive[temp]=false;
 
     });  // Number from 0.0 to 1.0
 
 
 }
+
+
+/*############MODAL##############*/
+/*############MODAL##############*//*############MODAL##############*/
+/*############MODAL##############*/
+
+function modifyShortcut( valueSpider , valueZombie, valueLiche , valueGoblin , valueSkeleton)
+{
+var tab = [ valueSpider , valueSkeleton , valueZombie , valueLiche , valueGoblin];
+
+    if(hasDuplicates(tab))
+    {
+       alert("You have a Shortcut duplicate")
+    }
+    else {
+        if (valueSpider) {
+            if (valueSpider != spiders.shortcut);
+            {
+                shortcut.remove(spiders.shortcut);
+                spiders.shortcut = valueSpider;
+                console.log(spiders.shortcut + " = " + valueSpider);
+
+                shortcut.add(spiders.shortcut, function () {
+                    buyMonster(spiders);
+                });
+                document.getElementById("Shortcut" + spiders.name).innerHTML = "( " + spiders.shortcut + " )";  //updates the spider cost for the user
+            }
+        }
+
+        if (valueSkeleton) {
+            if (valueSkeleton != skeletons.shortcut);
+            {
+                shortcut.remove(skeletons.shortcut);
+                skeletons.shortcut = valueSkeleton;
+                console.log(skeletons.shortcut + " = " + valueSkeleton);
+
+                shortcut.add(skeletons.shortcut, function () {
+                    buyMonster(skeletons);
+                });
+                document.getElementById("Shortcut" + skeletons.name).innerHTML = "( " + skeletons.shortcut + " )";  //updates the spider cost for the user
+            }
+        }
+
+        if (valueGoblin) {
+            if (valueGoblin != goblins.shortcut);
+            {
+                shortcut.remove(goblins.shortcut);
+                goblins.shortcut = valueGoblin;
+                console.log(goblins.shortcut + " = " + valueGoblin);
+
+                shortcut.add(goblins.shortcut, function () {
+                    buyMonster(goblins);
+                });
+                document.getElementById("Shortcut" + goblins.name).innerHTML = "( " + goblins.shortcut + " )";  //updates the spider cost for the user
+            }
+        }
+
+        if (valueZombie) {
+            if (valueZombie != zombies.shortcut);
+            {
+                shortcut.remove(zombies.shortcut);
+                zombies.shortcut = valueZombie;
+                console.log(zombies.shortcut + " = " + valueZombie);
+
+                shortcut.add(zombies.shortcut, function () {
+                    buyMonster(zombies);
+                });
+                document.getElementById("Shortcut" + zombies.name).innerHTML = "( " + zombies.shortcut + " )";  //updates the spider cost for the user
+            }
+        }
+
+        if (valueLiche) {
+            if (valueLiche != liches.shortcut);
+            {
+                shortcut.remove(liches.shortcut);
+                liches.shortcut = valueLiche;
+                console.log(liches.shortcut + " = " + valueLiche);
+
+                shortcut.add(liches.shortcut, function () {
+                    buyMonster(liches);
+                });
+                document.getElementById("Shortcut" + liches.name).innerHTML = "( " + liches.shortcut + " )";  //updates the spider cost for the user
+            }
+        }
+    }
+
+
+}
+
+function hasDuplicates(array) {
+    var valuesSoFar = Object.create(null);
+    for (var i = 0; i < array.length; ++i) {
+        var value = array[i];
+        if (value in valuesSoFar) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+    }
+    return false;
+}
+
+$('#myModal').on('show.bs.modal', disableShortcuts);
+
+
+$('#myModal').on('hidden.bs.modal', enableShortcuts() );
+
+function disableShortcuts()
+{
+    shortcut.remove(spiders.shortcut);
+    shortcut.remove(goblins.shortcut);
+    shortcut.remove(skeletons.shortcut);
+    shortcut.remove(zombies.shortcut);
+    shortcut.remove(liches.shortcut);
+}
+
+function enableShortcuts ()
+{
+    shortcut.add(spiders.shortcut, function () {
+        buyMonster(spiders);
+    });
+    shortcut.add(goblins.shortcut, function () {
+        buyMonster(goblins);
+    });
+    shortcut.add(skeletons.shortcut, function () {
+        buyMonster(skeletons);
+    });
+    shortcut.add(zombies.shortcut, function () {
+        buyMonster(zombies);
+    });
+    shortcut.add(liches.shortcut, function () {
+        buyMonster(liches);
+    });
+}
+/*############MODAL##############*/
+/*############MODAL##############*/
+/*############MODAL##############*/
+
+/* ############################## Old Code #####################*/
 
 
 
