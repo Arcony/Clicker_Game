@@ -1,4 +1,4 @@
-var golds = 999999999;
+var golds = 99999;
 var spiders =
     {
         nameSingle : "spider",
@@ -221,7 +221,7 @@ function load()
             {
                 var divrow = '<div class="row" id= "'+element.nameSingle+'Div">';
                 var div1 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div1">';
-                var div2 = '<div class=""col-lg-2 id= "'+element.nameSingle+'Div2">';
+                var div2 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div2">';
                 var div3 = '<div class="col-lg-4" id= "'+element.nameSingle+'Div3">';
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
@@ -568,6 +568,9 @@ function unlock(monster){
         $('#'+monster.nameSingle+'TileDiv1').removeClass("invisible");
         $('#'+monster.name+'DivShortcut').removeClass("invisible");
         document.getElementById('golds').innerHTML = prettify(golds);
+        $('#' + monster.nameSingle + 'Div4').addClass("col-lg-2");
+        $('#' + monster.nameSingle + 'Div3').removeClass("col-lg-6");
+        $('#' + monster.nameSingle + 'Div3').addClass("col-lg-4");
 
     }
 }
@@ -682,28 +685,59 @@ function animation(elem , timerMonster , monster , temp , tempCost)
 function engine()
 {
 
-    console.log("ok");
-    var isVisible = $('#buyTilespiders').is(':visible');
 
-    if(isVisible)
-    {
-        $('#spiderDiv3').removeClass("col-lg-6");
-        $('#spiderDiv3').addClass("col-lg-4");
-        $('#spiderDiv4').addClass("col-lg-2");
-        console.log("visible");
-    }
-    else
-    {
-        console.log("hidden");
-        $('#spiderDiv3').removeClass("col-lg-4");
-        $('#spiderDiv3').addClass("col-lg-6");
-        $('#spiderDiv4').removeClass("col-lg-2");
-    }
+    monsterTab.forEach(function(element) {
+
+        var isVisible = $('#buyTile' + element.name + '').is(':visible');
+
+        if (isVisible) {
+            $('#' + element.nameSingle + 'Div4').addClass("col-lg-2");
+            $('#' + element.nameSingle + 'Div3').removeClass("col-lg-6");
+            $('#' + element.nameSingle + 'Div3').addClass("col-lg-4");
 
 
+        }
+        else {
+            $('#' + element.nameSingle + 'Div4').removeClass("col-lg-2");
+            $('#' + element.nameSingle + 'Div3').removeClass("col-lg-4");
+            $('#' + element.nameSingle + 'Div3').addClass("col-lg-6");
+
+        }
 
 
-    setTimeout(engine,1);
+        if( golds < element.nextCost) {
+            $('#btnBuy' + element.namePrettify + '').addClass("disabled grey");
+        }
+        else {
+            $('#btnBuy' + element.namePrettify + '').removeClass("disabled grey");
+        }
+
+        if( golds < element.nextEffCost) {
+            $('#' + element.name + 'EffUp').addClass("disabled grey");
+        }
+        else {
+            $('#' + element.name + 'Effup').removeClass("disabled grey");
+        }
+
+        if( golds < element.nextTileCost) {
+            $('#buyTiles' + element.name + '').addClass("disabled grey");
+        }
+        else {
+            $('#buyTiles' + element.name + '').removeClass("disabled grey");
+        }
+
+        if( golds < element.unlockCost) {
+            $('#' + element.name + 'Unlock').addClass("disabled grey");
+        }
+        else {
+            $('#' + element.name + 'Unlock').removeClass("disabled grey");
+        }
+
+
+    });
+
+
+    setTimeout(engine,10);
 }
     engine();
 
