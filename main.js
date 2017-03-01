@@ -221,7 +221,7 @@ function load()
             {
                 var divrow = '<div class="row" id= "'+element.nameSingle+'Div">';
                 var div1 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div1">';
-                var div2 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div2">';
+                var div2 = '<div class=""col-lg-2 id= "'+element.nameSingle+'Div2">';
                 var div3 = '<div class="col-lg-4" id= "'+element.nameSingle+'Div3">';
                 var div4 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div4">';
                 var div5 = '<div class="col-lg-2" id= "'+element.nameSingle+'Div5">';
@@ -673,6 +673,46 @@ function animation(elem , timerMonster , monster , temp , tempCost)
 
 
 }
+
+/*###################AFFICHAGE##################*/
+/*###################AFFICHAGE##################*/
+/*###################AFFICHAGE##################*/
+
+
+function engine()
+{
+
+    console.log("ok");
+    var isVisible = $('#buyTilespiders').is(':visible');
+
+    if(isVisible)
+    {
+        $('#spiderDiv3').removeClass("col-lg-6");
+        $('#spiderDiv3').addClass("col-lg-4");
+        $('#spiderDiv4').addClass("col-lg-2");
+        console.log("visible");
+    }
+    else
+    {
+        console.log("hidden");
+        $('#spiderDiv3').removeClass("col-lg-4");
+        $('#spiderDiv3').addClass("col-lg-6");
+        $('#spiderDiv4').removeClass("col-lg-2");
+    }
+
+
+
+
+    setTimeout(engine,1);
+}
+    engine();
+
+/*###################AFFICHAGE##################*/
+/*###################AFFICHAGE##################*/
+/*###################AFFICHAGE##################*/
+
+
+
 
 
 /*############MODAL##############*/
