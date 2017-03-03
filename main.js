@@ -733,6 +733,27 @@ function engine()
             $('#' + element.name + 'Unlock').removeClass("disabled grey");
         }
 
+        if( !element.unlock )
+        {
+            $('#btnBuy' + element.namePrettify + '').addClass("invisible");
+        }
+        else
+        {
+            $('#btnBuy' + element.namePrettify + '').removeClass("invisible");
+        }
+
+
+
+            if ( element.tile == element.tileMax) {
+                $('#buyTile' + element.name + '').addClass("invisible");
+            }
+            else {
+                if(element.unlock) {
+                    $('#buyTile' + element.name + '').removeClass("invisible");
+                }
+            }
+
+
 
     });
 
