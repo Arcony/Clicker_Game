@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e1008ba-0625-4dc8-9c67-0e8591228276" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="746" column="16" lean-forward="false" selection-start-line="746" selection-start-column="16" selection-end-line="746" selection-end-column="16" />
+            <state relative-caret-position="293">
+              <caret line="668" column="0" lean-forward="true" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,8 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>for</find>
-      <find>' + element.nameSingle + 'Tile' + i + '</find>
       <find>Tile</find>
       <find>TileDiv</find>
       <find>element.nextEffCost</find>
@@ -87,6 +84,8 @@
       <find>each</find>
       <find>hidden</find>
       <find>piece.png</find>
+      <find>cookie</find>
+      <find>animate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,12 +164,12 @@
       <workItem from="1487233010742" duration="2934000" />
       <workItem from="1487276812666" duration="3314000" />
       <workItem from="1487681780678" duration="25327000" />
-      <workItem from="1488188262100" duration="42223000" />
+      <workItem from="1488188262100" duration="46207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73798000" />
+    <option name="totallyTimeSpent" value="77782000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -327,8 +326,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="746" column="16" lean-forward="false" selection-start-line="746" selection-start-column="16" selection-end-line="746" selection-end-column="16" />
+        <state relative-caret-position="293">
+          <caret line="668" column="0" lean-forward="true" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
           <folding />
         </state>
       </provider>
