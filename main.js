@@ -1,4 +1,8 @@
 var golds = 99999;
+var dateA= new Date();
+var dateFile = dateA.getMonth()+"/"+dateA.getDate() +"/"+dateA.getFullYear();
+console.log(dateFile);
+
 var spiders =
     {
         nameSingle : "spider",
@@ -111,11 +115,16 @@ var monsterTab = [ spiders , skeletons , goblins , zombies , liches ];
 
 var prestige = 0;
 var FPS=60;
+
 function Save()
 {
+    var dateB = new Date();
+    dateB = dateB.getMonth()+"/"+dateB.getDate() +"/"+dateB.getFullYear();
+    console.log(dateB);
     var save = {
 
         golds: golds,
+        dateSaved: dateB,
         spiders : {
             number : spiders.number,
             profit : spiders.profit,
@@ -180,6 +189,7 @@ function Save()
 
         prestige: prestige,
     }
+    console.log("save.dateSaved = "+save.dateSaved);
     localStorage.setItem("save",JSON.stringify(save));
 }
 
@@ -195,6 +205,17 @@ function load()
 
     if(saved)
     {
+
+            var date1 = new Date(saved.dateSaved);
+            var date2 = new Date(dateFile);
+            if(compareDate(date1 , date2) > 0)
+            {
+                console.log("New Day");
+            }
+
+
+
+
         monsterTab.forEach(function(element) {
 
             if(saved[element.name]) {
@@ -955,7 +976,13 @@ function eraseCookie(name) {
 }
 
 
-
+function compareDate(date1 , date2)
+{
+    var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24));
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return diffDays;
+}
 
 
 /*#COOKIE#*/
