@@ -211,6 +211,7 @@ function load()
             if(compareDate(date1 , date2) > 0)
             {
                 console.log("New Day");
+                $('#ModalDay').modal('show')
             }
 
 
