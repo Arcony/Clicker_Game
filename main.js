@@ -1,7 +1,11 @@
+
+
+
+
 var golds = 99999;
 var dateA= new Date();
-var dateFile = dateA.getMonth()+"/"+dateA.getDate() +"/"+dateA.getFullYear();
-console.log(dateFile);
+//var dateFile = dateA.getMonth()+"/"+dateA.getDate() +"/"+dateA.getFullYear();
+console.log(dateA);
 
 var spiders =
     {
@@ -118,13 +122,14 @@ var FPS=60;
 
 function Save()
 {
+
+    //dateB = dateB.getMonth()+"/"+dateB.getDate() +"/"+dateB.getFullYear();
+    //console.log(dateB);
     var dateB = new Date();
-    dateB = dateB.getMonth()+"/"+dateB.getDate() +"/"+dateB.getFullYear();
-    console.log(dateB);
     var save = {
 
         golds: golds,
-        dateSaved: dateB,
+        dateSaved: new Date(),
         spiders : {
             number : spiders.number,
             profit : spiders.profit,
@@ -199,6 +204,15 @@ function Delete()
 }
 /*##########################################################Load######*/
 
+
+var dateGet1;
+var dateGet2;
+var moment1;
+var moment2;
+var nextDay;
+var hours;
+var minutes;
+var secondes;
 function load()
 {
     var saved = JSON.parse(localStorage.getItem("save"));
@@ -206,13 +220,36 @@ function load()
     if(saved)
     {
 
-            var date1 = new Date(saved.dateSaved);
-            var date2 = new Date(dateFile);
-            if(compareDate(date1 , date2) > 0)
+        dateGet1 = dateA;
+        dateGet2 = saved.dateSaved;
+
+
+        moment1 = moment(dateGet1);
+        moment2 = moment(dateGet2);
+        nextDay = moment().add(1,"d");
+        nextDay = nextDay.startOf('day');
+
+
+
+        BonusTimer();
+
+
+
+
+
+        /*moment1 = moment(dateGet1);
+        moment2 = moment(dateGet2);
+        console.log(moment1);
+        console.log(moment2);
+
+        console.log( a.diff(b)); // 86400000
+
+
+            if(compareDate(dateGet1 , dateGet2) > 0)
             {
                 console.log("New Day");
                 $('#ModalDay').modal('show')
-            }
+            }*/
 
 
 
@@ -504,8 +541,29 @@ function load()
 /*##################################################################################*/
 /*#######################################LOADED###################################*/
 /*##################################################################################*/
+var bonusReady = false;
+function BonusTimer() {
 
 
+    hours = nextDay.diff( new Date() , 'hour');
+    minutes = nextDay.diff( new Date() , 'minute') - (hours * 60);
+    secondes = nextDay.diff( new Date() , 'second') - ( minutes*60 + (hours * 60*60) );
+
+
+    if (moment1.diff(moment2, "days") > 0) {
+        console.log("New Day");
+        $('#ModalDay').modal('show')
+        document.getElementById('Timer').innerHTML = "Its Avaible !";
+        bonusReady = true;
+
+    }
+    else {
+        document.getElementById('Timer').innerHTML = "Avaible in  " + hours + ":" + minutes + ":" + secondes;
+        bonusReady = false;
+    }
+
+    setTimeout(BonusTimer , 1000);
+}
 
 
 
@@ -979,7 +1037,7 @@ function eraseCookie(name) {
 
 function compareDate(date1 , date2)
 {
-    var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24));
+
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     return diffDays;
@@ -1039,3 +1097,7 @@ function compareDate(date1 , date2)
 
 /* var test = '<div class="tile" onclick="test('+spiders.name+' , '+spiders.nextCost+')" id="spiderTileDiv0"> </div>';
  $('#'+spiders.nameSingle+'Div3').append(test);*/
+
+
+
+
