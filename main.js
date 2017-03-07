@@ -2,10 +2,11 @@
 
 
 
-var golds = 99999;
+var golds = 0;
 var dateA= new Date();
 //var dateFile = dateA.getMonth()+"/"+dateA.getDate() +"/"+dateA.getFullYear();
 console.log(dateA);
+
 
 var spiders =
     {
@@ -194,8 +195,9 @@ function Save()
 
         prestige: prestige,
     }
-    console.log("save.dateSaved = "+save.dateSaved);
+
     localStorage.setItem("save",JSON.stringify(save));
+
 }
 
 function Delete()
@@ -400,6 +402,22 @@ function load()
     }
     else
     {
+
+        dateGet1 = dateA;
+        dateGet2 = new Date();
+
+
+        moment1 = moment(dateGet1);
+        moment2 = moment(dateGet2);
+        nextDay = moment().add(1,"d");
+        nextDay = nextDay.startOf('day');
+
+
+
+        BonusTimer();
+
+
+
         document.getElementById('golds').innerHTML = prettify(golds);
         monsterTab.forEach(function(element) {
 
@@ -558,11 +576,15 @@ function BonusTimer() {
 
     }
     else {
-        document.getElementById('Timer').innerHTML = "Avaible in  " + hours + ":" + minutes + ":" + secondes;
+        document.getElementById('Timer').innerHTML = "Avaible in  " + pad2(hours) + ":" + pad2(minutes) + ":" + pad2(secondes);
         bonusReady = false;
     }
 
     setTimeout(BonusTimer , 1000);
+}
+
+function pad2(number) {
+    return (number < 10 ? '0' : '') + number
 }
 
 
@@ -766,6 +788,8 @@ function engine()
 {
 
 
+
+
     monsterTab.forEach(function(element) {
 
         var isVisible = $('#buyTile' + element.name + '').is(':visible');
@@ -859,6 +883,8 @@ console.log(x);
 /*############MODAL##############*/
 /*############MODAL##############*//*############MODAL##############*/
 /*############MODAL##############*/
+
+
 
 function modifyShortcut( valueSpider , valueZombie, valueLiche , valueGoblin , valueSkeleton)
 {
@@ -955,18 +981,17 @@ function hasDuplicates(array) {
     return false;
 }
 
-$('#myModal').on('show.bs.modal', disableShortcuts);
-
-
-$('#myModal').on('hidden.bs.modal', enableShortcuts() );
 
 function disableShortcuts()
 {
-    shortcut.remove(spiders.shortcut);
+    console.log("ffs");
+    shortcut.remove(""+spiders.shortcut+"");
+    console.log("ffs");
     shortcut.remove(goblins.shortcut);
     shortcut.remove(skeletons.shortcut);
     shortcut.remove(zombies.shortcut);
     shortcut.remove(liches.shortcut);
+    console.log("ffs");
 }
 
 function enableShortcuts ()

@@ -36,14 +36,14 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" >Idle Game</a>
 				</div>
-				<div class="right">
+				<div class="right">ssssseeeesss
 					<ul class="nav navbar-nav">
 						<!--<li>  <a href="#upgradesTab" class="active-page">Upgrades </a></li>-->
 						<!--<li><a href="#unlockTab">Unlocks <span id="unlockable" class="badge">!</span></a></li>-->
 						<!--<li><a href="#settingsTab">Settings</a></li>-->
 					</ul>
 					<button type="button" id="btnDayBonus" class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#ModalDay">Bonus Day</button>
-					<button type="button" id="btnModif" class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#myModal">Shortcuts</button>
+					<button type="button" id="btnModif" onclick="disableShortcuts()"class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#myModal">Shortcuts</button>
 					<button onclick="Save()" id="btnSave" class="btn btn-danger navbar-btn">Save</button>
 					<button onclick="Delete()" class="btn btn-danger navbar-btn">Delete</button>
 
@@ -90,7 +90,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" onclick="modifyShortcut( shortcutspiders.value , shortcutzombies.value , shortcutliches.value, shortcutgoblins.value , shortcutskeletons.value)" data-dismiss="modal">Save</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" onclick="enableShortcuts()" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 
